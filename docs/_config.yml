@@ -7,7 +7,7 @@ plugins:
 
 # If this is a project site (not username.github.io), set baseurl to the repo name
 # Update this if your GitHub repo name differs
-baseurl: "/Full-Commit-Repo"
+baseurl: "/fullcommit"
 
 # Optional: your name or handle
 author:
