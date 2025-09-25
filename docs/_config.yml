@@ -1,0 +1,23 @@
+title: "fullcommit"
+description: "Python studies, projects, and pro tips"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# If this is a project site (not username.github.io), set baseurl to the repo name
+# Update this if your GitHub repo name differs
+baseurl: "/Full-Commit-Repo"
+
+# Optional: your name or handle
+author:
+  name: ""
+
+# Navigation
+header_pages:
+  - about.md
+
+# Excerpts on home
+show_excerpts: true
+
+
