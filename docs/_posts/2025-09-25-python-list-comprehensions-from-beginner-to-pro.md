@@ -2,7 +2,7 @@
 layout: post
 title: "Python List Comprehensions: From Beginner to Pro"
 description: "Master Python list comprehensions with practical examples from basic syntax to advanced techniques"
-date: 2025-09-26
+date: 2025-09-25
 tags: [python, list-comprehensions, beginner, advanced, tips]
 categories: [python]
 ---
