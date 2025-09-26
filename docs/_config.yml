@@ -6,6 +6,13 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# Site URL and timezone
+url: "https://junec7020.github.io"
+timezone: "Europe/London"
+
+# Show posts dated in the future (helps with UTC differences)
+future: true
+
 # Syntax highlighting
 highlighter: rouge
 markdown: kramdown
