@@ -1,0 +1,237 @@
+<h1 id="python-list-comprehensions-from-beginner-to-pro">Python List Comprehensions: From Beginner to Pro</h1>
+
+<p>List comprehensions are one of Python’s most elegant and powerful features. They allow you to create lists in a concise, readable way that often outperforms traditional loops. Let’s dive deep into this Pythonic magic!</p>
+
+<h2 id="what-are-list-comprehensions">What Are List Comprehensions?</h2>
+
+<p>A list comprehension is a compact way to create lists. Instead of writing a multi-line loop, you can express the same logic in a single, readable line.</p>
+
+<h3 id="basic-syntax">Basic Syntax</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Traditional approach
+</span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">numbers</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># List comprehension approach
+</span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>  <span class="c1"># [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+</span></code></pre></div></div>
+
+<h2 id="beginner-level-basic-comprehensions">Beginner Level: Basic Comprehensions</h2>
+
+<h3 id="simple-transformations">Simple Transformations</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Square numbers from 1 to 10
+</span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>  <span class="c1"># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</span>
+<span class="c1"># Convert strings to uppercase
+</span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">world</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">python</span><span class="sh">'</span><span class="p">]</span>
+<span class="n">upper_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="p">.</span><span class="nf">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">upper_words</span><span class="p">)</span>  <span class="c1"># ['HELLO', 'WORLD', 'PYTHON']
+</span>
+<span class="c1"># Extract lengths of strings
+</span><span class="n">word_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nf">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">word_lengths</span><span class="p">)</span>  <span class="c1"># [5, 5, 6]
+</span></code></pre></div></div>
+
+<h3 id="working-with-strings">Working with Strings</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Split sentences into words
+</span><span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">Hello world</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Python is awesome</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Code with passion</span><span class="sh">"</span><span class="p">]</span>
+<span class="n">all_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">.</span><span class="nf">split</span><span class="p">()]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">all_words</span><span class="p">)</span>  <span class="c1"># ['Hello', 'world', 'Python', 'is', 'awesome', 'Code', 'with', 'passion']
+</span>
+<span class="c1"># Extract vowels from text
+</span><span class="n">text</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Python Programming</span><span class="sh">"</span>
+<span class="n">vowels</span> <span class="o">=</span> <span class="p">[</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="nf">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="sh">'</span><span class="s">aeiou</span><span class="sh">'</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">vowels</span><span class="p">)</span>  <span class="c1"># ['y', 'o', 'o', 'a', 'i']
+</span></code></pre></div></div>
+
+<h2 id="intermediate-level-adding-conditions">Intermediate Level: Adding Conditions</h2>
+
+<h3 id="filtering-with-if">Filtering with <code class="language-plaintext highlighter-rouge">if</code></h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Get even numbers only
+</span><span class="n">numbers</span> <span class="o">=</span> <span class="nf">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">evens</span><span class="p">)</span>  <span class="c1"># [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+</span>
+<span class="c1"># Filter words longer than 3 characters
+</span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">cat</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">elephant</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">dog</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">butterfly</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">ant</span><span class="sh">'</span><span class="p">]</span>
+<span class="n">long_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">long_words</span><span class="p">)</span>  <span class="c1"># ['elephant', 'butterfly']
+</span>
+<span class="c1"># Get positive numbers from a list
+</span><span class="n">mixed_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">positives</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mixed_numbers</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">positives</span><span class="p">)</span>  <span class="c1"># [10, 7, 15]
+</span></code></pre></div></div>
+
+<h3 id="conditional-expressions-ternary-operator">Conditional Expressions (Ternary Operator)</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Convert negative numbers to 0, keep positives
+</span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">processed</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">processed</span><span class="p">)</span>  <span class="c1"># [0, 5, 0, 0, 3, 0]
+</span>
+<span class="c1"># Mark numbers as 'even' or 'odd'
+</span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">even</span><span class="sh">'</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="sh">'</span><span class="s">odd</span><span class="sh">'</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>  <span class="c1"># ['odd', 'even', 'odd', 'even', 'odd', 'even']
+</span></code></pre></div></div>
+
+<h2 id="advanced-level-nested-comprehensions">Advanced Level: Nested Comprehensions</h2>
+
+<h3 id="flattening-lists">Flattening Lists</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Flatten a 2D list
+</span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="n">flattened</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">flattened</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8, 9]
+</span>
+<span class="c1"># Flatten with condition
+</span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="n">evens_only</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span> <span class="k">if</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">evens_only</span><span class="p">)</span>  <span class="c1"># [2, 4, 6, 8]
+</span></code></pre></div></div>
+
+<h3 id="working-with-dictionaries">Working with Dictionaries</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Create dictionary from two lists
+</span><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">age</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">city</span><span class="sh">'</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">Alice</span><span class="sh">'</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="sh">'</span><span class="s">New York</span><span class="sh">'</span><span class="p">]</span>
+<span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nf">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>  <span class="c1"># {'name': 'Alice', 'age': 25, 'city': 'New York'}
+</span>
+<span class="c1"># Filter dictionary items
+</span><span class="n">scores</span> <span class="o">=</span> <span class="p">{</span><span class="sh">'</span><span class="s">Alice</span><span class="sh">'</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="sh">'</span><span class="s">Bob</span><span class="sh">'</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="sh">'</span><span class="s">Charlie</span><span class="sh">'</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="sh">'</span><span class="s">Diana</span><span class="sh">'</span><span class="p">:</span> <span class="mi">96</span><span class="p">}</span>
+<span class="n">high_scores</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">score</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">.</span><span class="nf">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">high_scores</span><span class="p">)</span>  <span class="c1"># {'Bob': 92, 'Diana': 96}
+</span></code></pre></div></div>
+
+<h2 id="pro-level-complex-examples">Pro Level: Complex Examples</h2>
+
+<h3 id="data-processing-pipeline">Data Processing Pipeline</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Process a list of student data
+</span><span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">Alice</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">]},</span>
+    <span class="p">{</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">Bob</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="mi">92</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">95</span><span class="p">]},</span>
+    <span class="p">{</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">Charlie</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">80</span><span class="p">]},</span>
+    <span class="p">{</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">Diana</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">98</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="c1"># Get students with average grade &gt;= 85
+</span><span class="n">top_students</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">]</span> 
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span> 
+    <span class="k">if</span> <span class="nf">sum</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">])</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">85</span>
+<span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">top_students</span><span class="p">)</span>  <span class="c1"># ['Alice', 'Bob', 'Diana']
+</span>
+<span class="c1"># Create grade summary
+</span><span class="n">grade_summary</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">]:</span> <span class="p">{</span>
+        <span class="sh">'</span><span class="s">average</span><span class="sh">'</span><span class="p">:</span> <span class="nf">sum</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">])</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">),</span>
+        <span class="sh">'</span><span class="s">max</span><span class="sh">'</span><span class="p">:</span> <span class="nf">max</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">]),</span>
+        <span class="sh">'</span><span class="s">min</span><span class="sh">'</span><span class="p">:</span> <span class="nf">min</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="sh">'</span><span class="s">grades</span><span class="sh">'</span><span class="p">])</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">grade_summary</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="file-processing">File Processing</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Read lines and process them (simulated)
+</span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">  hello world  </span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">  python  </span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">  programming  </span><span class="sh">"</span><span class="p">]</span>
+<span class="n">processed_lines</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">line</span><span class="p">.</span><span class="nf">strip</span><span class="p">().</span><span class="nf">title</span><span class="p">()</span> 
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> 
+    <span class="k">if</span> <span class="n">line</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>  <span class="c1"># Skip empty lines
+</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">processed_lines</span><span class="p">)</span>  <span class="c1"># ['Hello World', 'Python', 'Programming']
+</span></code></pre></div></div>
+
+<h2 id="performance-tips">Performance Tips</h2>
+
+<h3 id="when-to-use-list-comprehensions">When to Use List Comprehensions</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ✅ Good: Simple transformations
+</span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+
+<span class="c1"># ✅ Good: Filtering with simple conditions
+</span><span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># ❌ Avoid: Complex logic that reduces readability
+# Better to use a traditional loop for complex operations
+</span></code></pre></div></div>
+
+<h3 id="memory-considerations">Memory Considerations</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># For large datasets, consider generator expressions
+# List comprehension (stores all in memory)
+</span><span class="n">large_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)]</span>
+
+<span class="c1"># Generator expression (memory efficient)
+</span><span class="n">large_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="common-patterns">Common Patterns</h2>
+
+<h3 id="creating-ranges-with-conditions">Creating Ranges with Conditions</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Multiples of 3 and 5
+</span><span class="n">multiples</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Prime numbers (simple check)
+</span><span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="k">if</span> <span class="nf">all</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nf">int</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span>  <span class="c1"># [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+</span></code></pre></div></div>
+
+<h3 id="string-manipulation">String Manipulation</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Extract numbers from mixed strings
+</span><span class="n">mixed</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">abc123</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">def456</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">ghi789</span><span class="sh">"</span><span class="p">]</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="sh">''</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">char</span><span class="p">.</span><span class="nf">isdigit</span><span class="p">())</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">mixed</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>  <span class="c1"># ['123', '456', '789']
+</span>
+<span class="c1"># Create acronyms
+</span><span class="n">phrases</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">Python Programming Language</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Machine Learning Algorithm</span><span class="sh">"</span><span class="p">]</span>
+<span class="n">acronyms</span> <span class="o">=</span> <span class="p">[</span><span class="sh">''</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">phrase</span><span class="p">.</span><span class="nf">split</span><span class="p">())</span> <span class="k">for</span> <span class="n">phrase</span> <span class="ow">in</span> <span class="n">phrases</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">acronyms</span><span class="p">)</span>  <span class="c1"># ['PPL', 'MLA']
+</span></code></pre></div></div>
+
+<h2 id="pro-tips">Pro Tips</h2>
+
+<blockquote>
+  <p><strong>💡 Pro Tip 1:</strong> List comprehensions are often faster than traditional loops because they’re optimized at the C level in Python.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>💡 Pro Tip 2:</strong> Use <code class="language-plaintext highlighter-rouge">enumerate()</code> in comprehensions when you need both index and value:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">indexed_items</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">b</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">c</span><span class="sh">'</span><span class="p">])]</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p><strong>💡 Pro Tip 3:</strong> For complex logic, consider breaking comprehensions into multiple steps for better readability.</p>
+</blockquote>
+
+<h2 id="when-not-to-use-list-comprehensions">When NOT to Use List Comprehensions</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ❌ Too complex - use a traditional loop instead
+</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">complex_data</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nf">complex_condition_1</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+        <span class="n">processed</span> <span class="o">=</span> <span class="nf">complex_function_1</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nf">complex_condition_2</span><span class="p">(</span><span class="n">processed</span><span class="p">):</span>
+            <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">complex_function_2</span><span class="p">(</span><span class="n">processed</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>List comprehensions are a powerful Python feature that can make your code more readable and often faster. Start with simple transformations, gradually add conditions, and explore nested comprehensions as you become more comfortable.</p>
+
+<p>Remember: <strong>Readability counts!</strong> If a list comprehension becomes too complex, a traditional loop might be better.</p>
+
+<h3 id="key-takeaways">Key Takeaways:</h3>
+<ul>
+  <li>✅ Use for simple transformations and filtering</li>
+  <li>✅ Great for data processing pipelines</li>
+  <li>✅ Often faster than traditional loops</li>
+  <li>❌ Don’t sacrifice readability for conciseness</li>
+  <li>❌ Avoid overly complex nested comprehensions</li>
+</ul>
+
+<p>Happy coding! 🐍✨</p>

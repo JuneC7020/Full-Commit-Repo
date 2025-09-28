@@ -1,0 +1,114 @@
+<h1 id="python-code-highlighting--blog-setup">Python Code Highlighting &amp; Blog Setup</h1>
+
+<p>Welcome to your new Python blog! This post demonstrates the features we’ve set up for easy blogging.</p>
+
+<h2 id="code-examples">Code Examples</h2>
+
+<h3 id="basic-python-function">Basic Python Function</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Generate Fibonacci sequence up to n terms</span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">fib_sequence</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">next_fib</span> <span class="o">=</span> <span class="n">fib_sequence</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib_sequence</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">fib_sequence</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">next_fib</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fib_sequence</span>
+
+<span class="c1"># Example usage
+</span><span class="n">result</span> <span class="o">=</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">First 10 Fibonacci numbers: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="list-comprehensions-python-pro-tip">List Comprehensions (Python Pro Tip!)</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Traditional approach
+</span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">squares</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Pythonic approach with list comprehension
+</span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="c1"># With condition
+</span><span class="n">even_squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Squares: </span><span class="si">{</span><span class="n">squares</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Even squares: </span><span class="si">{</span><span class="n">even_squares</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="dictionary-comprehensions">Dictionary Comprehensions</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Create a dictionary mapping numbers to their squares
+</span><span class="n">square_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
+
+<span class="c1"># Filter dictionary items
+</span><span class="n">large_squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">square_dict</span><span class="p">.</span><span class="nf">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">}</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">All squares: </span><span class="si">{</span><span class="n">square_dict</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Large squares: </span><span class="si">{</span><span class="n">large_squares</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="inline-code-examples">Inline Code Examples</h2>
+
+<p>Use <code class="language-plaintext highlighter-rouge">print()</code> for output, <code class="language-plaintext highlighter-rouge">len()</code> for length, and <code class="language-plaintext highlighter-rouge">range()</code> for sequences.</p>
+
+<h2 id="images">Images</h2>
+
+<p>You can add images to your posts by placing them in <code class="language-plaintext highlighter-rouge">docs/assets/images/</code> and referencing them like this:</p>
+
+<p><img src="https://www.python.org/static/img/python-logo.png" alt="Python Logo" /></p>
+
+<h2 id="easy-post-creation">Easy Post Creation</h2>
+
+<p>To create a new post, simply run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python create_post.py <span class="s2">"Your Amazing Python Discovery"</span>
+</code></pre></div></div>
+
+<p>This will:</p>
+<ul>
+  <li>Create a new post file with today’s date</li>
+  <li>Use a template with proper front matter</li>
+  <li>Generate a URL-friendly filename</li>
+  <li>Include code highlighting setup</li>
+</ul>
+
+<h2 id="pro-tips-for-blogging">Pro Tips for Blogging</h2>
+
+<blockquote>
+  <p><strong>💡 Pro Tip:</strong> Always include code examples in your Python posts - they make concepts much clearer!</p>
+</blockquote>
+
+<h3 id="writing-tips">Writing Tips:</h3>
+<ol>
+  <li><strong>Start with a problem</strong> - What Python challenge did you solve?</li>
+  <li><strong>Show the code</strong> - Include working examples</li>
+  <li><strong>Explain the magic</strong> - Why does this approach work?</li>
+  <li><strong>Share alternatives</strong> - Show different ways to solve the same problem</li>
+</ol>
+
+<h2 id="categories-and-tags">Categories and Tags</h2>
+
+<p>This post uses:</p>
+<ul>
+  <li><strong>Categories</strong>: <code class="language-plaintext highlighter-rouge">[python]</code> - for organizing posts</li>
+  <li><strong>Tags</strong>: <code class="language-plaintext highlighter-rouge">[python, jekyll, blogging, setup]</code> - for search and filtering</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Your blog is now set up with:</p>
+<ul>
+  <li>✅ Syntax highlighting for Python code</li>
+  <li>✅ Easy post creation script</li>
+  <li>✅ Image support</li>
+  <li>✅ Professional Jekyll theme</li>
+  <li>✅ SEO optimization</li>
+</ul>
+
+<p>Happy blogging! 🐍✨</p>
